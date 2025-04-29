@@ -53,19 +53,17 @@ type ServerInterfaceWrapper struct {
 
 // GetTasks converts echo context to params.
 func (w *ServerInterfaceWrapper) GetTasks(ctx echo.Context) error {
-	var err error
 
 	// Invoke the callback with all the unmarshaled arguments
-	err = w.Handler.GetTasks(ctx)
+	err := w.Handler.GetTasks(ctx)
 	return err
 }
 
 // PostTasks converts echo context to params.
 func (w *ServerInterfaceWrapper) PostTasks(ctx echo.Context) error {
-	var err error
 
 	// Invoke the callback with all the unmarshaled arguments
-	err = w.Handler.PostTasks(ctx)
+	err := w.Handler.PostTasks(ctx)
 	return err
 }
 
