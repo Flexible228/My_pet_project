@@ -6,6 +6,5 @@ type Task struct {
 	gorm.Model
 	Task   string `json:"task"`
 	IsDone bool   `json:"is_done"`
-	Text   string `json:"text"`
 	Id     int64  `json:"id"`
 }

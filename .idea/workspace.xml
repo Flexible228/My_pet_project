@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1a93584d-2a6a-4887-b793-22c83ec3a376" name="Changes" comment="Добавление Lint и исправление ошибок">
+      <change afterPath="$PROJECT_DIR$/internal/handlers/userHandlers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usersService/orm.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usersService/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usersService/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/web/tasks/api.gen.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/web/users/api.gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/app/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/app/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/handlers/taskHandlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/handlers/taskHandlers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/tasksService/orm.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/tasksService/orm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/tasksService/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/tasksService/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openapi/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/openapi/openapi.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../Program Files/Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Flexible228&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Flexible228/My_pet_project.git&quot;,
+    &quot;accountId&quot;: &quot;ad0e83e4-d465-4e43-8365-d1ec0e3a954c&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2vfeDXw3QB9xVq1dDOUsJbptY3m" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go Build.go build My_pet_project/cmd.executor&quot;: &quot;Run&quot;,
+    &quot;Go Build.go build My_pet_project/cmd/app.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.gen-user.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.gen.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.generate.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.migrate-new.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.migrate-up.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/golang/My_pet_project/internal/usersService&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/golang/My_pet_project/main.go&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\golang\My_pet_project\internal\usersService" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\golang\My_pet_project\internal" />
+      <recent name="C:\golang\My_pet_project\migrations" />
+      <recent name="C:\golang\My_pet_project\cmd\app" />
+      <recent name="C:\golang\My_pet_project\internal\taskService" />
+      <recent name="C:\golang\My_pet_project\internal\handlers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build My_pet_project/cmd/app">
+    <configuration name="go build My_pet_project/cmd/app" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="My_pet_project" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="My_pet_project/cmd/app" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/app/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build api.gen.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="My_pet_project" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="My_pet_project" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/internal/web/tasks/api.gen.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="gen-user" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/makefile" target="gen-user" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="generate" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/makefile" target="generate" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="openapi.yaml" type="SwaggerCodegen" editBeforeRun="true" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="generateToPath" value="C:\Users\waype\gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorType" value="OPENAPI_GENERATOR_V7" />
+      <option name="jdkPath" value="C:\Program Files\JetBrains\GoLand 2024.3.3\jbr\bin\java.exe" />
+      <option name="language" value="go" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="specificationPath" value="C:\golang\My_pet_project\openapi\openapi.yaml" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build My_pet_project/cmd/app" />
+        <item itemvalue="Go Build.go build api.gen.go" />
+        <item itemvalue="Makefile Target.gen-user" />
+        <item itemvalue="Makefile Target.generate" />
+        <item itemvalue="OpenAPI/Swagger Code Generator.openapi.yaml" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-gosdk-d297c17c1fbd-57c114c3cede-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-243.24978.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-GO-243.24978.59" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.bat" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Добавление Lint и исправление ошибок" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление Lint и исправление ошибок" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/My_pet_project$go_build_My_pet_project_cmd_app.out" NAME="go build My_pet_project/cmd/app Coverage Results" MODIFIED="1745005724625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

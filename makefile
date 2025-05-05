@@ -1,27 +1,22 @@
-# Makefile для создания миграций
-
-# Переменные которые будут использоваться в наших командах (Таргетах)
-DB_DSN := "postgres-container://postgres:yourpassword@localhost:5432/main?sslmode=disable"
-MIGRATE := migrate -path ./migrations -database $(DB_DSN)
-
 # Таргет для создания новой миграции
 migrate-new:
 	migrate create -ext sql -dir ./migrations ${NAME}
 
 # Применение миграций
 migrate-up:
-	$(MIGRATE) up
+	migrate -path ./migrations -database "postgres://postgres:yourpassword@localhost:5432/postgres?sslmode=disable" up
 
 # Откат миграций
 migrate-down:
-	$(MIGRATE) down
+	migrate -path ./migrations -database "postgres://postgres:yourpassword@localhost:5432/postgres?sslmode=disable" down
 
-# для удобства добавим команду run, которая будет запускать наше приложение
-run:
-	go run cmd/app/main.go # Теперь при вызове make run мы запустим наш сервер
-
-gen:
+genTasks:
 	oapi-codegen -config openapi/.openapi.yaml -include-tags tasks -package tasks openapi/openapi.yaml > ./internal/web/tasks/api.gen.go
+
+genUsers:
+	oapi-codegen -config openapi/.openapi.yaml -include-tags users -package users openapi/openapi.yaml > ./internal/web/users/api.gen.go
 
 lint:
 	golangci-lint run --out-format=colored-line-number
+
+ go get -u github.com/golang-migrate/migrate/v4/@v/list

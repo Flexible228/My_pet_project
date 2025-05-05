@@ -6,17 +6,17 @@ import (
 	"golang.org/x/net/context"
 )
 
-type Handler struct {
+type TasksHandler struct {
 	Service *tasksService.TaskService
 }
 
-func NewHandler(service *tasksService.TaskService) *Handler {
-	return &Handler{
+func NewTasksHandler(service *tasksService.TaskService) *TasksHandler {
+	return &TasksHandler{
 		Service: service,
 	}
 }
 
-func (h *Handler) GetTasks(_ context.Context, _ tasks.GetTasksRequestObject) (tasks.GetTasksResponseObject, error) {
+func (h *TasksHandler) GetTasks(_ context.Context, _ tasks.GetTasksRequestObject) (tasks.GetTasksResponseObject, error) {
 	// Получение всех задач из сервиса
 	allTasks, err := h.Service.GetAllTasks()
 	if err != nil {
@@ -31,7 +31,7 @@ func (h *Handler) GetTasks(_ context.Context, _ tasks.GetTasksRequestObject) (ta
 	for _, tsk := range allTasks {
 		task := tasks.Task{
 			Id:     &tsk.Id,
-			Task:   &tsk.Text,
+			Task:   &tsk.Task,
 			IsDone: &tsk.IsDone,
 		}
 		response = append(response, task)
@@ -41,12 +41,12 @@ func (h *Handler) GetTasks(_ context.Context, _ tasks.GetTasksRequestObject) (ta
 	return response, nil
 }
 
-func (h *Handler) PostTasks(_ context.Context, request tasks.PostTasksRequestObject) (tasks.PostTasksResponseObject, error) {
+func (h *TasksHandler) PostTasks(_ context.Context, request tasks.PostTasksRequestObject) (tasks.PostTasksResponseObject, error) {
 	// Распаковываем тело запроса напрямую, без декодера!
 	taskRequest := request.Body
 	// Обращаемся к сервису и создаем задачу
 	taskToCreate := tasksService.Task{
-		Text:   *taskRequest.Task,
+		Task:   *taskRequest.Task,
 		IsDone: *taskRequest.IsDone,
 	}
 	createdTask, err := h.Service.CreateTask(taskToCreate)
@@ -57,14 +57,14 @@ func (h *Handler) PostTasks(_ context.Context, request tasks.PostTasksRequestObj
 	// создаем структуру респонс
 	response := tasks.PostTasks201JSONResponse{
 		Id:     &createdTask.Id,
-		Task:   &createdTask.Text,
+		Task:   &createdTask.Task,
 		IsDone: &createdTask.IsDone,
 	}
 	// Просто возвращаем респонс!
 	return response, nil
 }
 
-func (h *Handler) DeleteTasksId(ctx context.Context, request tasks.DeleteTasksIdRequestObject) (tasks.DeleteTasksIdResponseObject, error) {
+func (h *TasksHandler) DeleteTasksId(ctx context.Context, request tasks.DeleteTasksIdRequestObject) (tasks.DeleteTasksIdResponseObject, error) {
 	// Удаляем задачу по ID
 	err := h.Service.DeleteTaskByID(uint(request.Id))
 	if err != nil {
@@ -76,11 +76,11 @@ func (h *Handler) DeleteTasksId(ctx context.Context, request tasks.DeleteTasksId
 	return tasks.DeleteTasksId204Response{}, nil
 }
 
-func (h *Handler) PatchTasksId(ctx context.Context, request tasks.PatchTasksIdRequestObject) (tasks.PatchTasksIdResponseObject, error) {
+func (h *TasksHandler) PatchTasksId(ctx context.Context, request tasks.PatchTasksIdRequestObject) (tasks.PatchTasksIdResponseObject, error) {
 	// Получение данных для обновления
 	updatedTask := tasksService.Task{}
 	if request.Body.Task != nil {
-		updatedTask.Text = *request.Body.Task
+		updatedTask.Task = *request.Body.Task
 	}
 	if request.Body.IsDone != nil {
 		updatedTask.IsDone = *request.Body.IsDone
@@ -97,7 +97,7 @@ func (h *Handler) PatchTasksId(ctx context.Context, request tasks.PatchTasksIdRe
 	// Успешно обновленная задача
 	response := tasks.PatchTasksId200JSONResponse{
 		Id:     &updatedTask.Id,
-		Task:   &updatedTask.Text,
+		Task:   &updatedTask.Task,
 		IsDone: &updatedTask.IsDone,
 	}
 	return response, nil
