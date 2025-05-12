@@ -16,18 +16,36 @@ func NewTasksHandler(service *tasksService.TaskService) *TasksHandler {
 	}
 }
 
-func (h *TasksHandler) GetTasks(_ context.Context, _ tasks.GetTasksRequestObject) (tasks.GetTasksResponseObject, error) {
-	// Получение всех задач из сервиса
+func (h *TasksHandler) GetTasksUserUserId(_ context.Context, req tasks.GetTasksUserUserIdRequestObject) (tasks.GetTasksUserUserIdResponseObject, error) {
 	allTasks, err := h.Service.GetAllTasks()
 	if err != nil {
 		return nil, err
 	}
 
-	// Создаем переменную респон типа 200джейсонРеспонс
-	// Которую мы потом передадим в качестве ответа
+	response := tasks.GetTasksUserUserId200JSONResponse{}
+
+	for _, tsk := range allTasks {
+		if tsk.UserId == req.UserId {
+			task := tasks.Task{
+				Id:     &tsk.Id,
+				Task:   &tsk.Task,
+				IsDone: &tsk.IsDone,
+			}
+			response = append(response, task)
+		}
+	}
+
+	return response, nil
+}
+
+func (h *TasksHandler) GetTasks(_ context.Context, _ tasks.GetTasksRequestObject) (tasks.GetTasksResponseObject, error) {
+	allTasks, err := h.Service.GetAllTasks()
+	if err != nil {
+		return nil, err
+	}
+
 	response := tasks.GetTasks200JSONResponse{}
 
-	// Заполняем слайс response всеми задачами из БД
 	for _, tsk := range allTasks {
 		task := tasks.Task{
 			Id:     &tsk.Id,
@@ -37,7 +55,6 @@ func (h *TasksHandler) GetTasks(_ context.Context, _ tasks.GetTasksRequestObject
 		response = append(response, task)
 	}
 
-	// САМОЕ ПРЕКРАСНОЕ. Возвращаем просто респонс и nil!
 	return response, nil
 }
 
@@ -48,17 +65,18 @@ func (h *TasksHandler) PostTasks(_ context.Context, request tasks.PostTasksReque
 	taskToCreate := tasksService.Task{
 		Task:   *taskRequest.Task,
 		IsDone: *taskRequest.IsDone,
+		UserId: *taskRequest.UserId,
 	}
-	createdTask, err := h.Service.CreateTask(taskToCreate)
+	createdTask, err := h.Service.CreateTask(taskToCreate, *taskRequest.UserId)
 
 	if err != nil {
 		return nil, err
 	}
 	// создаем структуру респонс
 	response := tasks.PostTasks201JSONResponse{
-		Id:     &createdTask.Id,
 		Task:   &createdTask.Task,
 		IsDone: &createdTask.IsDone,
+		Id:     &createdTask.Id,
 	}
 	// Просто возвращаем респонс!
 	return response, nil

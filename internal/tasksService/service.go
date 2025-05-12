@@ -8,8 +8,8 @@ func NewTasksService(repo TaskRepository) *TaskService {
 	return &TaskService{repo: repo}
 }
 
-func (s *TaskService) CreateTask(task Task) (Task, error) {
-	return s.repo.CreateTask(task)
+func (s *TaskService) CreateTask(task Task, UserId uint) (Task, error) {
+	return s.repo.CreateTask(task, UserId)
 }
 
 func (s *TaskService) GetAllTasks() ([]Task, error) {

@@ -23,3 +23,7 @@ func (s *UserService) UpdateUserByID(id uint, user User) (User, error) {
 func (s *UserService) DeleteUserByID(id uint) error {
 	return s.repo.DeleteUserByID(id)
 }
+
+func (s *UserService) GetTasksForUser(userID uint) ([]User, error) {
+	return s.repo.GetTasksForUser(userID)
+}

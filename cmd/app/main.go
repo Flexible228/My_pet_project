@@ -14,6 +14,10 @@ import (
 
 func main() {
 	database.InitDB()
+	err := database.DB.AutoMigrate(&tasksService.Task{})
+	if err != nil {
+		return
+	}
 
 	tasksRepo := tasksService.NewTaskRepository(database.DB)
 	TasksService := tasksService.NewTasksService(tasksRepo)

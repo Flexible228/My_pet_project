@@ -5,7 +5,7 @@ import (
 )
 
 type TaskRepository interface {
-	CreateTask(task Task) (Task, error)
+	CreateTask(task Task, UserId uint) (Task, error)
 
 	GetAllTasks() ([]Task, error)
 
@@ -22,14 +22,14 @@ func NewTaskRepository(db *gorm.DB) *taskRepository {
 	return &taskRepository{db: db}
 }
 
-func (r *taskRepository) CreateTask(task Task) (Task, error) {
+func (r *taskRepository) CreateTask(task Task, UserId uint) (Task, error) {
+	task.UserId = UserId // Задаем связь с пользователем через его ID
 	result := r.db.Create(&task)
 	if result.Error != nil {
 		return Task{}, result.Error
 	}
 	return task, nil
 }
-
 func (r *taskRepository) GetAllTasks() ([]Task, error) {
 	var tasks []Task
 	err := r.db.Find(&tasks).Error
